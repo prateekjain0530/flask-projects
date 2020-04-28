@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Design Your NSE / FNO / MCX Strategy - Pivottrading.Net</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<link href="/beta/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/beta/lib/bootstrap/css/bootstrap-select.min.css" rel="stylesheet">
+
+
+<link href="/beta/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+<link href="/beta/lib/owlcarousel/assets/owl.theme.default.min.css" rel="stylesheet">
+<link href="/beta/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="/beta/lib/animate/animate.min.css" rel="stylesheet">
+<link href="/beta/lib/modal-video/css/modal-video.min.css" rel="stylesheet">
+
+<link href="/beta/css/style.css?v=1.3" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <header id="header" class="header header-hide">
+<div class="container">
+
+  <div id="logo" class="pull-left">
+	<h1><a href="#" class="scrollto"><span>P</span>ivottrading.Net</a></h1>		
+  </div>
+  
+  <nav id="nav-menu-container">
+	<ul class="nav-menu">
+	  
+	  <li class="menu-active menu-has-children"><a href="#">Home</a>
+		<ul>
+		  <li><a href="#">Home Page</a></li>
+		  <li><a href="#">About Us</a></li>
+		  <li><a href="#">Disclaimer</a></li>
+		  <li><a href="#" target="_blank">Partner Brokers</a></li>
+		  <li><a href="#">Old Website</a></li>
+		</ul>
+	  </li>
+	  <li class="menu-has-children"><a href="#">Algo Tools</a>
+		<ul>
+			<li class="menu-has-children"><a href="#">Aliceblue ALGO Tools <sup>12</sup></a>
+				<ul>
+				<li class="menu-has-children"><a href="#">Hedging Tools <sup>11</sup></a>
+					<ul>
+						<li class="menu-has-children"><a href="#">Straddle / Strangle <sup>7</sup></a>
+							<ul>
+								<li><a href="#">Index Covered Contra Straddle</a></li>
+								<li><a href="#">Index Short Straddle</a></li>
+								<li><a href="#">Index Long Straddle</a></li>
+								<li><a href="#">Index Short Strangle</a></li>
+								<li><a href="#">Index Long Strangle</a></li>
+								<li><a href="#">Index Contra Straddle</a></li>
+								<li><a href="#">Index Covered Straddle</a></li>
+								
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Indexes<sup>3</sup></a>
+							<ul>
+								<li><a href="#">Index Short Guts</a></li>
+								<li><a href="#">Index Long Guts</a></li>
+								<li><a href="#">Contra Options Hedging</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">MCX<sup>1</sup></a>
+							<ul>
+								<li><a href="#">Lead - Zinc</a></li>
+							</ul>
+						</li>			
+					</ul>
+				</li>
+                    </ul>
+                </li>
+			<li class="menu-has-children"><a href="#">Upstox ALGO Tools<sup>2</sup></a>
+				<ul>
+				<li class="menu-has-children"><a href="#">Hedging Tools<sup>2</sup></a>
+					<ul>
+						<li class="menu-has-children"><a href="#">Indexes<sup>2</sup></a>
+							<ul>
+								<li><a href="#">Index Short Guts</a></li>
+								<li><a href="#">Index Contra Straddle</a></li>								
+							</ul>
+						</li>		
+					</ul>
+				</li>
+				</ul>
+			</li>
+		</ul>
+	  </li>
+	  <li class="menu-has-children"><a href="#">Tools</a>
+		<ul>
+		  <li class="menu-has-children"><a href="#">Zerodha Tools<sup>76</sup></a>
+			<ul>
+				<li class="menu-has-children"><a href="#">Hedging Tools<sup>44</sup></a>
+					<ul>
+						<li><a href="#">Design Own Options Strategy</a></li>
+						<li class="menu-has-children"><a href="#">Weekday Wise Strategies<sup>1</sup></a>
+							<ul>
+								<li><a href="#">Monday / Friday Index Strategy</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">MCX<sup>1</sup></a>
+							<ul>
+								<li><a href="#">Lead - Zinc</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Collar<sup>2</sup></a>
+							<ul>
+								<li><a href="#">Index Bullish Collar</a></li>
+								<li><a href="#">Index Bearish Collar</a></li>
+								
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Guts<sup>2</sup></a>
+							<ul>
+								<li><a href="#">Index Short Guts</a></li>
+								<li><a href="#">Index Long Guts</a></li>									
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Index Straddle/Strangle<sup>8</sup></a>
+							<ul>
+								<li><a href="#">Index Covered Contra Straddle</a></li>
+								<li><a href="#">Index Covered Contra Strangle</a></li>
+								<li><a href="#">Index Covered Straddle</a></li>
+								<li><a href="#">Index Contra Straddle</a></li>
+								<li><a href="#">Index Contra Strangle</a></li>
+								<li><a href="#">Index Short Straddle</a></li>
+								<li><a href="#">Index Short Strangle</a></li>
+								<li><a href="#">Index Short High OI Strangle</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Index Butterfly / Condor<sup>7</sup></a>
+							<ul>
+								<li><a href="#">Index Long Iron Condor</a></li>
+								<li><a href="#">Index Short Iron Condor</a></li>
+								<li><a href="#">Index Long Iron Butterfly</a></li>
+								<li><a href="#">Index Short Iron Butterfly</a></li>
+								<li><a href="#">Index Short Deep Iron Butterfly</a></li>
+								<li><a href="#">Index Long Call Butterfly</a></li>
+								<li><a href="#">Index Short Call Butterfly</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Indexes<sup>8</sup></a>
+							<ul>
+								<li><a href="#">Index Contra Call</a></li>
+								<li><a href="#">Index Contra Put</a></li>
+								<li><a href="#">Index Hedging (Fut + Op)</a></li>
+								
+								<li><a href="#">Index Hedging (only Options)</a></li>
+								<li><a href="#">Options Index Expiry Strategy</a></li>
+								<li><a href="#">Index Covered Call</a></li>
+								<li><a href="">Index Covered Put</a></li>									
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Pair Trade<sup>3</sup></a>
+							<ul>
+								<li><a href="#">Equity Pair Trading</a></li>
+								<li><a href="#">Futures Pair Trading</a></li>
+								<li><a href="#">Futures+Options Hedging</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Gainer Looser &nbsp;&nbsp;<sup>2</sup></a>
+							<ul>
+								<li><a href="#">Gainer Looser Hedging Equities</a></li>
+								<li><a href="#">Gainer Looser Hedging Futures</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Gap Trade &nbsp;&nbsp;<sup>2</sup></a>
+							<ul>
+								<li><a href="#">Gap Hedging Equities</a></li>
+								<li><a href="#">Gap Hedging Futures</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">VWAP Trade &nbsp;&nbsp;<sup>2</sup></a>
+							<ul>
+								<li><a href="#">VWAP Equities Hedging</a></li>
+								<li><a href="#">VWAP Futures Hedging</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Beta Breakout &nbsp;&nbsp;<sup>2</sup></a>
+							<ul>
+								<li><a href="#">Beta Equities Hedging</a></li>
+								<li><a href="#">Beta Futures Hedging</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Trend Based Hedging Tool</a></li>
+					</ul>
+				</li>
+				<li class="menu-has-children"><a href="#">Open High Low Scanner &nbsp;&nbsp;<sup>5</sup></a>
+					<ul>
+						<li><a href="#">OHL Equities</a></li>
+						<li><a href="#">OHL Stock Futures</a></li>
+						<li><a href="#">OHL Index Options</a></li>
+						<li><a href="#">OHL Stock Options</a></li>
+						<li><a href="#">OHL MCX Futures</a></li>        					
+					</ul>
+				</li>
+				<li class="menu-has-children"><a href="#">Breakout Tools / Scanner &nbsp;&nbsp;<sup>5</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/scanner/equityBreakoutScanner-multi.php">Basket Bracket Order (Equity)</a></li>
+						<li><a href="https://www.pivottrading.co.in/scanner/niftyBreakoutScanner.php">Nifty / BankNifty</a></li>
+						<li><a href="https://www.pivottrading.co.in/scanner/equityBreakoutScanner.php">Equity Cash</a></li>
+						<li><a href="https://www.pivottrading.co.in/scanner/futuresBreakoutScanner.php">Equity Futures</a></li>
+						<li><a href="https://www.pivottrading.co.in/scanner/mcxBreakoutScanner.php">MCX Commodities</a></li>
+					</ul>
+				</li>
+				<li class="menu-has-children"><a href="#">Opening Range Breakout &nbsp;&nbsp;<sup>7</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/scanner/orb-with-fixed-loss-zerodha.php">ORB Equity with Fixed Loss</a></li>
+						<li><a href="https://www.pivottrading.co.in/scanner/narrowRangeBreakoutScanner.php">Narrow Range Breakout</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/opening-range-breakout-eq.php">ORB Equity</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/opening-range-breakout-eq.php">ORB Equity + Bracket Order</a></li>
+						<li><a href="https://www.pivottrading.co.in/scanner/openHighLowWithBreakoutScannerForFutures.php">ORB Equity Futures</a></li>
+						<li><a href="https://www.pivottrading.co.in/scanner/openingRangeBreakout-futures-oco-zerodha.php">ORB Equity Futures + Bracket Order</a></li>
+						<li><a href="https://www.pivottrading.co.in/scanner/openHighLowWithBreakoutScannerForCommodities.php">ORB MCX Futures</a></li>
+					</ul>
+				</li>
+				<li class="menu-has-children"><a href="#">PRB Scanner &nbsp;&nbsp;<sup>3</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/prb-scanner-equity.php">PRB (Equity) Scanner</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/prb-scanner-futures.php">PRB (Equity Futures) Scanner</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/prb-scanner-mcx.php">PRB (MCX Futures) Scanner</a></li>
+					</ul>
+				</li>
+				<li class="menu-has-children"><a href="#">Camarilla &nbsp;&nbsp;<sup>2</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/scanner/camarillaScanner.php">Equity</a></li>
+						<li><a href="https://www.pivottrading.co.in/scanner/mcxCamarillaScanner.php">MCX</a></li>
+					</ul>
+				</li>
+				<li class="menu-has-children"><a href="#">Swing Trader &nbsp;&nbsp;<sup>3</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/mcx-swing-trader.php">MCX Commodities</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/nifty-swing-trader.php">Nifty Index</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/equity-swing-trader.php">Equity Cash</a></li>
+					</ul>
+				</li>
+				<li><a href="https://www.pivottrading.co.in/scanner/candleBreakout-oco-zerodha.php?broker=zerodha">15/30/60 min Candle Breakout</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/stocks-trend-scanner.php?broker=zerodha">Stocks Trend Scanner</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/design-strategy-zerodha.php">Design Strategy (Basket Orders)</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/pyramid-strategy.php?broker=zerodha">Pyramid Strategy</a></li>
+				<li><a href="https://www.pivottrading.co.in/strategies/index.php">Options Trading Strategy</a></li>
+				<li><a href="https://www.pivottrading.co.in/basket/index.php">Zerodha Basket Orders</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/excel-to-zerodha.php">Excel To Zerodha</a></li>
+			</ul>
+		  </li>
+		  <li class="menu-has-children"><a href="#">Upstox Tools &nbsp;&nbsp;<sup>78</sup></a>
+			<ul>
+				<li class="menu-has-children"><a href="#">Hedging Tools &nbsp;&nbsp;<sup>44</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/create-strategy.php">Design Own Options Strategy</a></li>
+						<li class="menu-has-children"><a href="#">Weekday Wise Strategies &nbsp;&nbsp;<sup>1</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-monday-strategy.php?broker=upstox">Monday / Friday Index Strategy</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">MCX &nbsp;&nbsp;<sup>1</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/mcx-hedging.php?broker=upstox">Lead - Zinc</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Collar &nbsp;&nbsp;<sup>2</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-bullish-collar.php?broker=upstox">Index Bullish Collar</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-bearish-collar.php?broker=upstox">Index Bearish Collar</a></li>
+								<!--<li><a href="https://www.pivottrading.co.in/beta/tools/stocks-bullish-collar.php?broker=upstox">Stocks Bullish Collar</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/stocks-bearish-collar.php?broker=upstox">Stocks Bearish Collar</a></li>-->
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Guts &nbsp;&nbsp;<sup>2</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-short-guts.php?broker=upstox">Index Short Guts</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-long-guts.php?broker=upstox">Index Long Guts</a></li>									
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Index Straddle/Strangle &nbsp;&nbsp;<sup>8</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-covered-contra-straddle.php?broker=upstox">Index Covered Contra Straddle</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-covered-contra-strangle.php?broker=upstox">Index Covered Contra Strangle</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-covered-straddle.php?broker=upstox">Index Covered Straddle</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-contra-straddle.php?broker=upstox">Index Contra Straddle</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-contra-strangle.php?broker=upstox">Index Contra Strangle</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-short-straddle.php?broker=upstox">Index Short Straddle</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-short-strangle.php?broker=upstox">Index Short Strangle</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-short-highest-oi.php?broker=upstox">Index Short High OI Strangle</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Index Butterfly / Condor &nbsp;&nbsp;<sup>7</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/long-iron-condor.php?broker=upstox">Index Long Iron Condor</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/short-iron-condor.php?broker=upstox">Index Short Iron Condor</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/long-iron-butterfly.php?broker=upstox">Index Long Iron Butterfly</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/short-iron-butterfly.php?broker=upstox">Index Short Iron Butterfly</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/short-deep-iron-butterfly.php?broker=upstox">Index Short Deep Iron Butterfly</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-long-call-butterfly.php?broker=upstox">Index Long Call Butterfly</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-short-call-butterfly.php?broker=upstox">Index Short Call Butterfly</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Indexes &nbsp;&nbsp;<sup>8</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-contra-call.php?broker=upstox">Index Contra Call</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-contra-put.php?broker=upstox">Index Contra Put</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-hedging.php?broker=upstox">Index Hedging (Fut + Op)</a></li>
+								
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-options-hedging.php?broker=upstox">Index Hedging (only Options)</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-expiry-strategy.php?broker=upstox">Options Index Expiry Strategy</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-covered-call.php?broker=upstox">Index Covered Call</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-covered-put.php?broker=upstox">Index Covered Put</a></li>									
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Pair Trade &nbsp;&nbsp;<sup>3</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/pair-trading.php?broker=upstox">Equity Pair Trading</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/pair-trading-futures.php?broker=upstox">Futures Pair Trading</a></li>
+								<li><a href="https://www.pivottrading.co.in/scanner/pairtrading-futures-options.php?broker=upstox">Futures+Options Hedging</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Gainer Looser &nbsp;&nbsp;<sup>2</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/gainer-looser-hedging.php?broker=upstox">Gainer Looser Hedging Equities</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/gainer-looser-hedging-futures.php?broker=upstox">Gainer Looser Hedging Futures</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Gap Trade &nbsp;&nbsp;<sup>2</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/gap-hedging.php?broker=upstox">Gap Hedging Equities</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/gap-hedging-futures.php?broker=upstox">Gap Hedging Futures</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">VWAP Trade &nbsp;&nbsp;<sup>2</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/vwap-hedging.php?broker=upstox">VWAP Equities Hedging</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/vwap-hedging-futures.php?broker=upstox">VWAP Futures Hedging</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Beta Breakout &nbsp;&nbsp;<sup>2</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/beta-hedging.php?broker=upstox">Beta Equities Hedging</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/beta-hedging-futures.php?broker=upstox">Beta Futures Hedging</a></li>
+							</ul>
+						</li>
+						<li><a href="https://www.pivottrading.co.in/scanner/equityMagicFormula.php?broker=upstox">Trend Based Hedging Tool</a></li>
+					</ul>
+				</li>					
+				<li class="menu-has-children"><a href="#">Open High Low Scanner &nbsp;&nbsp;<sup>5</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/open-high-low-scanner.php?broker=upstox">OHL Equities</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/open-high-low-future-scanner.php?broker=upstox">OHL Stock Futures</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/open-high-low-index-options-scanner.php?broker=upstox">OHL Index Options</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/open-high-low-stock-options-scanner.php?broker=upstox">OHL Stock Options</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/open-high-low-mcx-scanner.php?broker=upstox">OHL MCX Futures</a></li>        					
+					</ul>
+				</li>
+				<li class="menu-has-children"><a href="#">Breakout Tools / Scanner &nbsp;&nbsp;<sup>4</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/scanner/equityBreakoutScanner-multi-upstox.php">Basket Bracket Order (Equity)</a></li>
+						<li><a href="https://www.pivottrading.co.in/scanner/equityBreakoutScanner-upstox.php">Equity Cash / Spot</a></li>
+						<li><a href="https://www.pivottrading.co.in/scanner/futuresBreakoutScanner-upstox.php">Equity Futures</a></li>
+						<li><a href="https://www.pivottrading.co.in/scanner/niftyBreakoutScanner-upstox.php">Nifty / BankNifty</a></li>
+					</ul>
+				</li>
+				<li class="menu-has-children"><a href="#">Opening Range Breakout &nbsp;&nbsp;<sup>5</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/scanner/orb-with-fixed-loss-upstox.php">ORB Equity with Fixed Loss</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/opening-range-breakout-eq.php?broker=upstox">ORB Equity Cash</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/opening-range-breakout-eq.php?broker=upstox">ORB Equity + Bracket Order</a></li>
+						<li><a href="https://www.pivottrading.co.in/scanner/openHighLowWithBreakoutScannerForFutures-upstox.php">ORB Futures</a></li>
+						<li><a href="https://www.pivottrading.co.in/scanner/openingRangeBreakout-futures-oco-upstox.php">ORB Futures + Bracket Order</a></li>
+					</ul>
+				</li>
+				
+				<li class="menu-has-children"><a href="#">Diamond Strategy &nbsp;&nbsp;<sup>2</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/scanner/mcx-diamondStrategy-oco-upstox.php">MCX Commodity</a></li>
+						<li><a href="https://www.pivottrading.co.in/scanner/diamondStrategy-oco-upstox.php">Equity Cash / Spot</a></li>
+					</ul>
+				</li>
+				<li class="menu-has-children"><a href="#">Ladder Strategy &nbsp;&nbsp;<sup>3</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/scanner/mcx-ladderStrategy-oco-upstox.php">MCX Commodity</a></li>
+						<li><a href="https://www.pivottrading.co.in/scanner/ladderStrategy-options-oco-upstox.php">Index Options</a></li>
+						<li><a href="https://www.pivottrading.co.in/scanner/ladderStrategy-oco-upstox.php">Equity</a></li>
+					</ul>
+				</li>
+				<li class="menu-has-children"><a href="#">PRB Scanner &nbsp;&nbsp;<sup>3</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/prb-scanner-futures.php?broker=upstox">PRB (Equity Futures) Scanner</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/prb-scanner-equity.php?broker=upstox">PRB (Equity) Scanner</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/prb-scanner-mcx.php?broker=upstox">PRB (MCX Futures) Scanner</a></li>
+					</ul>
+				</li>
+				<li class="menu-has-children"><a href="#">Camarilla &nbsp;&nbsp;<sup>3</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/scanner/fnoCamarillaScanner-upstox.php">Equity Futures</a></li>
+						<li><a href="https://www.pivottrading.co.in/scanner/camarillaScanner-upstox.php">Equity Cash / Spot</a></li>
+						<li><a href="https://www.pivottrading.co.in/scanner/mcxCamarillaScanner-upstox.php">MCX Commodity</a></li>
+					</ul>
+				</li>
+				<li class="menu-has-children"><a href="#">Swing Trader &nbsp;&nbsp;<sup>3</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/mcx-swing-trader.php">MCX Commodities</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/nifty-swing-trader.php">Nifty Index</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/equity-swing-trader.php">Equity Cash</a></li>
+					</ul>
+				</li>
+				<li><a href="https://www.pivottrading.co.in/scanner/candleBreakout-oco-upstox.php?broker=upstox">15/30/60 min Candle Breakout</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/stocks-trend-scanner.php?broker=upstox">Stocks Trend Scanner</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/design-strategy-upstox.php">Design Strategy (Basket Orders)</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/pyramid-strategy.php?broker=upstox">Pyramid Strategy</a></li>
+				<li><a href="https://www.pivottrading.co.in/strategies-upstox/index.php">Options Trading Strategy</a></li>        			
+				<li><a href="https://www.pivottrading.co.in/beta/tools/excel-to-upstox.php">Excel To Upstox</a></li>
+			</ul>
+		  </li>
+		  <li class="menu-has-children"><a href="#">Aliceblue Tools &nbsp;&nbsp;<sup>63</sup></a>
+			<ul>
+				<li class="menu-has-children"><a href="#">Utility Tools &nbsp;&nbsp;<sup>2</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/beta/algo-tools/exit-all.php">Exit All Positions</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/algo-tools/cancel-all.php">Cancel All Orders</a></li>
+					</ul>
+				</li>
+				<li class="menu-has-children"><a href="#">Hedging Tools &nbsp;&nbsp;<sup>43</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/create-strategy.php">Design Own Options Strategy</a></li>
+						<li class="menu-has-children"><a href="#">Weekday Wise Strategies &nbsp;&nbsp;<sup>1</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-monday-strategy.php?broker=aliceblue">Monday / Friday Index Strategy</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">MCX &nbsp;&nbsp;<sup>1</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/mcx-hedging.php?broker=aliceblue">Lead - Zinc</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Collar &nbsp;&nbsp;<sup>2</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-bullish-collar.php?broker=aliceblue">Index Bullish Collar</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-bearish-collar.php?broker=aliceblue">Index Bearish Collar</a></li>
+								<!--<li><a href="https://www.pivottrading.co.in/beta/tools/stocks-bullish-collar.php?broker=aliceblue">Stocks Bullish Collar</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/stocks-bearish-collar.php?broker=aliceblue">Stocks Bearish Collar</a></li>-->
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Guts &nbsp;&nbsp;<sup>2</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-short-guts.php?broker=aliceblue">Index Short Guts</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-long-guts.php?broker=aliceblue">Index Long Guts</a></li>									
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Index Straddle/Strangle &nbsp;&nbsp;<sup>8</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-covered-contra-straddle.php?broker=aliceblue">Index Covered Contra Straddle</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-covered-contra-strangle.php?broker=aliceblue">Index Covered Contra Strangle</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-covered-straddle.php?broker=aliceblue">Index Covered Straddle</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-contra-straddle.php?broker=aliceblue">Index Contra Straddle</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-contra-strangle.php?broker=aliceblue">Index Contra Strangle</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-short-straddle.php?broker=aliceblue">Index Short Straddle</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-short-strangle.php?broker=aliceblue">Index Short Strangle</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-short-highest-oi.php?broker=aliceblue">Index Short High OI Strangle</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Index Butterfly / Condor &nbsp;&nbsp;<sup>7</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/long-iron-condor.php?broker=aliceblue">Index Long Iron Condor</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/short-iron-condor.php?broker=aliceblue">Index Short Iron Condor</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/long-iron-butterfly.php?broker=aliceblue">Index Long Iron Butterfly</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/short-iron-butterfly.php?broker=aliceblue">Index Short Iron Butterfly</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/short-deep-iron-butterfly.php?broker=aliceblue">Index Short Deep Iron Butterfly</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-long-call-butterfly.php?broker=aliceblue">Index Long Call Butterfly</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-short-call-butterfly.php?broker=aliceblue">Index Short Call Butterfly</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Indexes &nbsp;&nbsp;<sup>8</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-contra-call.php?broker=aliceblue">Index Contra Call</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-contra-put.php?broker=aliceblue">Index Contra Put</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-hedging.php?broker=aliceblue">Index Hedging (Fut + Op)</a></li>
+								
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-options-hedging.php?broker=aliceblue">Index Hedging (only Options)</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-expiry-strategy.php?broker=aliceblue">Options Index Expiry Strategy</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-covered-call.php?broker=aliceblue">Index Covered Call</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-covered-put.php?broker=aliceblue">Index Covered Put</a></li>									
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Pair Trade &nbsp;&nbsp;<sup>3</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/pair-trading.php?broker=aliceblue">Equity Pair Trading</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/pair-trading-futures.php?broker=aliceblue">Futures Pair Trading</a></li>
+								<li><a href="https://www.pivottrading.co.in/scanner/pairtrading-futures-options.php?broker=aliceblue">Futures+Options Hedging</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Gainer Looser &nbsp;&nbsp;<sup>2</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/gainer-looser-hedging.php?broker=aliceblue">Gainer Looser Hedging Equities</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/gainer-looser-hedging-futures.php?broker=aliceblue">Gainer Looser Hedging Futures</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Gap Trade &nbsp;&nbsp;<sup>2</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/gap-hedging.php?broker=aliceblue">Gap Hedging Equities</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/gap-hedging-futures.php?broker=aliceblue">Gap Hedging Futures</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">VWAP Trade &nbsp;&nbsp;<sup>2</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/vwap-hedging.php?broker=aliceblue">VWAP Equities Hedging</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/vwap-hedging-futures.php?broker=aliceblue">VWAP Futures Hedging</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Beta Breakout &nbsp;&nbsp;<sup>2</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/beta-hedging.php?broker=aliceblue">Beta Equities Hedging</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/beta-hedging-futures.php?broker=aliceblue">Beta Futures Hedging</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li class="menu-has-children"><a href="#">Open High Low Scanner &nbsp;&nbsp;<sup>5</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/open-high-low-scanner.php?broker=aliceblue">OHL Equities</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/open-high-low-future-scanner.php?broker=aliceblue">OHL Stock Futures</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/open-high-low-index-options-scanner.php?broker=aliceblue">OHL Index Options</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/open-high-low-stock-options-scanner.php?broker=aliceblue">OHL Stock Options</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/open-high-low-mcx-scanner.php?broker=aliceblue">OHL MCX Futures</a></li>
+					</ul>
+				</li>
+				<li class="menu-has-children"><a href="#">Breakout Tools / Scanner &nbsp;&nbsp;<sup>5</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/scanner/mcxBreakoutScanner-aliceblue.php">MCX Commodities</a></li>
+						<li><a href="https://www.pivottrading.co.in/scanner/futuresBreakoutScanner-aliceblue.php">Equity Futures</a></li>
+					</ul>
+				</li>
+				<li class="menu-has-children"><a href="#">Opening Range Breakout &nbsp;&nbsp;<sup>1</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/opening-range-breakout-eq.php?broker=aliceblue">ORB Equity Cash</a></li>
+					</ul>
+				</li>
+				<li class="menu-has-children"><a href="#">PRB Scanner &nbsp;&nbsp;<sup>3</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/prb-scanner-equity.php?broker=aliceblue">PRB (Equity) Scanner</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/prb-scanner-futures.php?broker=aliceblue">PRB (Equity Futures) Scanner</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/prb-scanner-mcx.php?broker=aliceblue">PRB (MCX Futures) Scanner</a></li>
+					</ul>
+				</li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/excel-to-aliceblue.php">Excel To Aliceblue</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/design-strategy-aliceblue.php">Design Strategy (Basket Orders)</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/stocks-trend-scanner.php?broker=aliceblue">Stocks Trend Scanner</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/pyramid-strategy.php?broker=aliceblue">Pyramid Strategy</a></li>
+				
+			</ul>
+		  </li>		  
+		  <li class="menu-has-children"><a href="#">Fyers Tools &nbsp;&nbsp;<sup>33</sup></a>
+			<ul>
+				<!--<li class="menu-has-children"><a href="#">Utility Tools &nbsp;&nbsp;<sup>2</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/beta/algo-tools/exit-all.php">Exit All Positions</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/algo-tools/cancel-all.php">Cancel All Orders</a></li>
+					</ul>
+				</li>-->
+				<li class="menu-has-children"><a href="#">Hedging Tools &nbsp;&nbsp;<sup>31</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/create-strategy.php">Design Own Options Strategy</a></li>
+						<li class="menu-has-children"><a href="#">Weekday Wise Strategies &nbsp;&nbsp;<sup>1</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-monday-strategy.php?broker=fyers">Monday / Friday Index Strategy</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Collar &nbsp;&nbsp;<sup>2</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-bullish-collar.php?broker=fyers">Index Bullish Collar</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-bearish-collar.php?broker=fyers">Index Bearish Collar</a></li>								
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Guts &nbsp;&nbsp;<sup>2</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-short-guts.php?broker=fyers">Index Short Guts</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-long-guts.php?broker=fyers">Index Long Guts</a></li>									
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Index Straddle/Strangle &nbsp;&nbsp;<sup>8</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-covered-contra-straddle.php?broker=fyers">Index Covered Contra Straddle</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-covered-contra-strangle.php?broker=fyers">Index Covered Contra Strangle</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-covered-straddle.php?broker=fyers">Index Covered Straddle</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-contra-straddle.php?broker=fyers">Index Contra Straddle</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-contra-strangle.php?broker=fyers">Index Contra Strangle</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-short-straddle.php?broker=fyers">Index Short Straddle</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-short-strangle.php?broker=fyers">Index Short Strangle</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-short-highest-oi.php?broker=fyers">Index Short High OI Strangle</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Indexes &nbsp;&nbsp;<sup>7</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-contra-call.php?broker=fyers">Index Contra Call</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-contra-put.php?broker=fyers">Index Contra Put</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-hedging.php?broker=fyers">Index Hedging (Fut + Op)</a></li>
+								
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-options-hedging.php?broker=fyers">Index Hedging (only Options)</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-covered-call.php?broker=fyers">Index Covered Call</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/index-covered-put.php?broker=fyers">Index Covered Put</a></li>									
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Pair Trade &nbsp;&nbsp;<sup>2</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/pair-trading.php?broker=fyers">Equity Pair Trading</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/pair-trading-futures.php?broker=fyers">Futures Pair Trading</a></li>								
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Gainer Looser &nbsp;&nbsp;<sup>2</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/gainer-looser-hedging.php?broker=fyers">Gainer Looser Hedging Equities</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/gainer-looser-hedging-futures.php?broker=fyers">Gainer Looser Hedging Futures</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Gap Trade &nbsp;&nbsp;<sup>2</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/gap-hedging.php?broker=fyers">Gap Hedging Equities</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/gap-hedging-futures.php?broker=fyers">Gap Hedging Futures</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">VWAP Trade &nbsp;&nbsp;<sup>2</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/vwap-hedging.php?broker=fyers">VWAP Equities Hedging</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/vwap-hedging-futures.php?broker=fyers">VWAP Futures Hedging</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children"><a href="#">Beta Breakout &nbsp;&nbsp;<sup>2</sup></a>
+							<ul>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/beta-hedging.php?broker=fyers">Beta Equities Hedging</a></li>
+								<li><a href="https://www.pivottrading.co.in/beta/tools/beta-hedging-futures.php?broker=fyers">Beta Futures Hedging</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li class="menu-has-children"><a href="#">Open High Low Scanner &nbsp;&nbsp;<sup>2</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/open-high-low-scanner.php?broker=fyers">OHL Equities</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/open-high-low-future-scanner.php?broker=fyers">OHL Stock Futures</a></li>
+					</ul>
+				</li>
+			</ul>
+		  </li>		  
+		  <li class="menu-has-children"><a href="#">NSE Tools &nbsp;&nbsp;<sup>15</sup></a>
+			<ul>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/stocks-trend-scanner.php?broker=zerodha">Stocks Trend Scanner</a></li>
+				<li class="menu-has-children"><a href="#">Price Action Scanner &nbsp;&nbsp;<sup>4</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/15min-price-action-scanner.php">15 Min candles</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/30min-price-action-scanner.php">30 Min candles</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/60min-price-action-scanner.php">Hourly candles</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/daily-price-action-scanner.php">EOD Candles</a></li>
+					</ul>
+				</li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/open-high-low-scanner.php">Open High Low Scanner</a></li>
+				<li><a href="https://www.pivottrading.co.in/scanner/equityBreakoutScanner.php">Equity Cash Breakout Levels</a></li>
+				<li><a href="https://www.pivottrading.co.in/scanner/multiScanner.php">Price Action Multi Purpose</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/opening-range-breakout-eq.php">Opening Range Breakout Scanner</a></li>
+				<li><a href="https://www.pivottrading.co.in/scanner/camarillaScanner.php">Advanced Camarilla Scanner</a></li>			
+				<li><a href="https://www.pivottrading.co.in/scanner/gapup-gapdown-scanner.php">Gapup-Gapdown-Scanner</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/prb-scanner-equity.php">PRB (Equity) Scanner</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/nifty-swing-trader.php">Nifty Index Swing Trader</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/equity-swing-trader.php">Equity Swing Trader</a></li>
+				<li><a href="https://www.pivottrading.co.in/scanner/btst-stbt.php">BTST / STBT</a></li>
+				<!--<li><a href="https://www.pivottrading.co.in/scanner/chartingScanner.php">EMA / MACD / RSI Scanner</a></li>-->
+				<!--<li><a href="https://www.pivottrading.co.in/scanner/narrowRangeBreakoutScanner.php">Narrow Range Breakout Scanner</a></li>-->
+				<!--<li><a href="https://www.pivottrading.co.in/scanner/averagePriceScanner.php">Average Price Scanner</a></li>-->
+				<!--<li><a href="https://www.pivottrading.co.in/scanner/52weekScanner.php">52 week High Low Scanner</a></li>-->
+				<!--<li><a href="https://www.pivottrading.co.in/scanner/deliveryBasedScanner.php">Delivery/Trading Based Scanner</a></li>-->
+				<!--<li><a href="https://www.pivottrading.co.in/scanner/openInterestScanner.php">Open Interest Based Scanner</a></li>-->
+			</ul>
+		  </li>
+		  <li class="menu-has-children"><a href="#">FNO Tools &nbsp;&nbsp;<sup>10</sup></a>
+			<ul>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/prb-scanner-futures.php">PRB (Equity Futures) Scanner</a></li>
+				<li><a href="https://www.pivottrading.co.in/scanner/niftyBreakoutScanner.php">Nifty / BankNifty Breakout</a></li>
+				<li><a href="https://www.pivottrading.co.in/scanner/futuresBreakoutScanner.php">Equity Futures Breakout</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/open-high-low-future-scanner.php">OHL Stock Futures</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/open-high-low-index-options-scanner.php">OHL Index Options</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/open-high-low-stock-options-scanner.php">OHL Stock Options</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/open-high-low-mcx-scanner.php">OHL MCX Futures</a></li>        	
+				<li><a href="https://www.pivottrading.co.in/scanner/openHighLowWithBreakoutScannerForFutures.php">ORB Equity Futures</a></li>
+				<li><a href="https://www.pivottrading.co.in/scanner/openingRangeBreakout-futures-oco-zerodha.php">ORB Equity Futures + Bracket Order</a></li>
+			</ul>
+		  </li>
+		  <li class="menu-has-children"><a href="#">MCX Tools &nbsp;&nbsp;<sup>13</sup></a>
+			<ul>
+				<li class="menu-has-children"><a href="#">Price Action Scanner &nbsp;&nbsp;<sup>4</sup></a>
+					<ul>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/15min-mcx-price-action-scanner.php">15 Min candles</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/30min-mcx-price-action-scanner.php">30 Min candles</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/60min-mcx-price-action-scanner.php">Hourly candles</a></li>
+						<li><a href="https://www.pivottrading.co.in/beta/tools/daily-price-action-scanner.php">EOD Candles</a></li>
+					</ul>
+				</li>
+				<li><a href="https://www.pivottrading.co.in/scanner/mcxMultiScanner.php">MCX Price Action Multi Purpose</a></li>
+				<li><a href="https://www.pivottrading.co.in/scanner/mcxBreakoutScanner.php">MCX Breakout Levels</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/mcx-swing-trader.php">MCX Commodities Swing Trader</a></li>
+				<li><a href="https://www.pivottrading.co.in/scanner/openHighLowWithBreakoutScannerForCommodities.php">ORB in MCX</a></li>
+				<li><a href="https://www.pivottrading.co.in/scanner/mcxOpenHighLowBasketScanner.php">Advanced OHL Scanner</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/open-high-low-mcx-scanner.php">Open High Low Scanner</a></li>
+				<li><a href="https://www.pivottrading.co.in/scanner/mcxCamarillaScanner.php">Advanced Camarilla Scanner</a></li>
+				<li><a href="https://www.pivottrading.co.in/scanner/prevDayMcxOpenHighLowScanner.php">Previous Day OHL Scanner</a></li>        			
+			</ul>
+		  </li>
+		  <li class="menu-has-children"><a href="#">Swing Trader &nbsp;&nbsp;<sup>4</sup></a>
+			<ul>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/nifty-swing-trader.php">Nifty Index</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/equity-swing-trader.php">Equity Cash</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/mcx-swing-trader.php">MCX Commodities Swing Trader</a></li>
+				<li><a href="https://www.pivottrading.co.in/scanner/btst-stbt.php">BTST / STBT</a></li>
+			</ul>
+		  </li>
+		  <li class="menu-has-children"><a href="#">Excel to Trade &nbsp;&nbsp;<sup>3</sup></a>
+			<ul>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/excel-to-zerodha.php">Excel To Zerodha</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/excel-to-upstox.php">Excel To Upstox</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/excel-to-aliceblue.php">Excel To Aliceblue</a></li>
+			</ul>
+		  </li>			  
+		</ul>
+	  </li>
+	  <li class="menu-has-children"><a href="#">Open Account</a>
+		<ul>
+		  <li><a href="/beta/zerodha.php">Zerodha &nbsp;&nbsp;<sup>₹ 300</sup></a></li>
+		  <li><a href="/beta/upstox.php">Upstox &nbsp;&nbsp;<sup>₹ 300</sup></a></li>
+		  <li><a href="/beta/aliceblue.php">Aliceblue &nbsp;&nbsp;<sup>₹ 500</sup></a></li>
+		  <li><a href="https://www.5paisa.com/landing/partners-elite?rcode=NTg5ODk4MTc=" target="_blank">5Paisa &nbsp;&nbsp;<sup>free</sup></a></li>
+		  <li><a href="https://online.angelbroking.com/Diykyc/SubbrokerLead?SbTag=U0FISFM=" target="_blank">Angel Broking &nbsp;&nbsp;<sup>free</sup></a></li>
+		  <li><a href="https://www.stoxkart.com/cpc/open-demat-account.php?ref=BDSTX0077" target="_blank">StoxKart &nbsp;&nbsp;<sup>free</sup></a></li>
+		  <li><a href="http://partners.fyers.in/AP096" target="_blank">Fyers &nbsp;&nbsp;<sup>free</sup></a></li>
+		  <li><a href="/beta/sunness.php" target="_blank">Sunness</a></li>
+		  <li><a href="https://tradesmartonline.in/landing-page/online-trading/?landing_page=asli-trader&utm_refer=YMHS5038&utm_source=AP" target="_blank">TradeSmartOnline &nbsp;&nbsp;<sup>₹ 400</sup></a></li>
+		  <li><a href="https://bit.ly/2YharRS" target="_blank">Edelweiss</a></li>
+		</ul>
+	  </li>
+	  <li class="menu-has-children"><a href="#">Compare Brokers</a>
+		<ul>
+			<li><a href="https://compareonlinebroker.co.in/zerodha-vs-upstox/" target="_blank">Zerodha Vs Upstox</a></li>
+			<li><a href="https://compareonlinebroker.co.in/zerodha-vs-aliceblue/" target="_blank">Zerodha Vs Aliceblue</a></li>
+			<li><a href="https://compareonlinebroker.co.in/upstox-vs-aliceblue/" target="_blank">Upstox Vs Aliceblue</a></li>
+			<li><a href="https://compareonlinebroker.co.in/zerodha-vs-tradesmartonline/" target="_blank">Zerodha Vs TradeSmartOnline</a></li>
+		</ul>
+	  </li>
+	  <li class="menu-has-children"><a href="#">Calculators</a>
+		<ul>
+		<li class="menu-has-children"><a href="#">Forex Calculators &nbsp;&nbsp;<sup>4</sup></a>
+			<ul>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/forex-camarilla.php">Advanced Camarilla</a></li>
+				<li><a href="https://www.pivottrading.co.in/forex/advancedElliott.php">Advanced Elliott Wave</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/forex-advanced-gann-square-of-9.php">Advanced Gann Square of Nine</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/forex-gann-square-of-9.php">Simple Gann Square of Nine</a></li>
+			</ul>
+		</li>
+		<li class="menu-has-children"><a href="#">Gann Calculators &nbsp;&nbsp;<sup>4</sup></a>
+			<ul>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/forex-gann-square-of-9.php">Forex Gann Square of 9</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/simple-gann-square-of-9.php">Simple Gann Square of 9</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/advanced-gann-square-of-9.php">Advanced Gann Square of 9</a></li>
+				<li><a href="https://www.pivottrading.co.in/pages/gannPositional.php">Gann Positional/Swing</a></li>
+			</ul>
+		</li>
+		<li class="menu-has-children"><a href="#">Pivot Points &nbsp;&nbsp;<sup>2</sup></a>
+			<ul>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/pivot-point-calculator.php">Simple Pivot Point</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/pivot-point-calculator.php">Fibonacci Pivot Point</a></li>
+			</ul>
+		</li>
+		<li><a href="https://www.pivottrading.co.in/beta/tools/camarilla-calculator.php">Camarilla Calculation</a></li>
+		<li><a href="https://www.pivottrading.co.in/beta/tools/advanced-volatility.php">Advanced Volatility</a></li>
+		<li class="menu-has-children"><a href="#">Retracement & Extension &nbsp;&nbsp;<sup>2</sup></a>
+			<ul>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/simple-retracement-calculator.php">Simple Retracement</a></li>
+				<li><a href="https://www.pivottrading.co.in/beta/tools/retracement-extension.php">Fibonacci Retracement & Extension</a></li>
+			</ul>
+		</li>
+		<li class="menu-has-children"><a href="#">Elliott Wave &nbsp;&nbsp;<sup>2</sup></a>
+			<ul>
+				<li><a href="https://www.pivottrading.co.in/pages/elliott.php">Simple Elliott Wave</a></li>
+				<li><a href="https://www.pivottrading.co.in/pages/advancedElliott.php">Advanced Elliott Wave</a></li>
+			</ul>
+		</li>
+		<li><a href="https://www.pivottrading.co.in/pages/breakout.php">Breakout</a></li>
+		<li><a href="https://www.pivottrading.co.in/beta/tools/woodie-calculator.php">Woodie</a></li>
+		<li><a href="https://www.pivottrading.co.in/pages/niftyTrendFinder.php">Nifty Trend Finder</a></li>
+		<li><a href="https://www.pivottrading.co.in/pages/option.php">Black-Scholes option</a></li>
+		</ul>
+	  </li>
+	  <li class="menu-has-children"><a href="#">Educational</a>
+		<ul>
+			<li><a href="https://www.pivottrading.co.in/learning/basicsOfShareMarket.php" target="_blank">Basics of Share Market</a></li>			
+			<li><a href="#" target="_blank">Options Trading Strategies</a></li>
+			<li><a href="https://stockanalysis.50webs.com/macd.htm" target="_blank">Technical Analysis</a></li>
+			<li><a href="https://www.pivottrading.co.in/pages/technicalAnalysis.php" target="_blank">Technical Analysis 2</a></li>
+		</ul>
+	  </li>
+	  <li class="menu-has-children"><a href="#">Videos</a>
+		<ul>
+			<li><a href="https://www.youtube.com/channel/UC4_yGw2uzvllgM6q0033rVQ/videos" target="_blank">Aliceblue Tutorials</a></li>
+			
+			<li><a href="https://www.youtube.com/watch?v=QYHDUxk7FMQ&list=PLVAo_p0Ct-fikCF_UckibK3sKRuju_H8j" target="_blank">Zerodha Tutorials</a></li>
+			<li><a href="https://www.youtube.com/watch?v=m_ClecXoBXI&list=PLVAo_p0Ct-fiIeczn_Bh6RRdfBeQnYTsL" target="_blank">Upstox Tutorials</a></li>
+			<li><a href="https://www.youtube.com/watch?v=T1i6slj4SD4&list=PLVAo_p0Ct-fgz7DpN-T5WUteVGpbNPZ5Z" target="_blank">Trading Strategies</a></li>
+			<li><a href="https://www.youtube.com/watch?v=EhJTaGLw5QM&list=PLVAo_p0Ct-fiOsQCP9-Rvw84BYFSRqNJ7" target="_blank">Semi-automated Tools</a></li>
+			<li><a href="https://www.youtube.com/watch?v=cQwIBEtG36k&list=PLVAo_p0Ct-fhT165PjBvshoujpQ_WoH-g" target="_blank">Educational</a></li>
+			<li><a href="https://www.youtube.com/watch?v=1jyrHWZQCP8&list=PLVAo_p0Ct-fjeS2200y2VL0Khi4UbfHkX" target="_blank">Futures & Options</a></li>
+			<li><a href="https://www.youtube.com/watch?v=MNU7P5qW3QU&list=PLVAo_p0Ct-fiV-ncVsw-A1oC06gZwvY0e" target="_blank">Discount Broker</a></li>
+			<li><a href="https://www.youtube.com/watch?v=BkvoaRtPfhw&list=PLVAo_p0Ct-fiWFyCFAWy3SB8w7uMieZEq" target="_blank">Online Meetups</a></li>
+			<li><a href="https://www.youtube.com/watch?v=1jyrHWZQCP8&list=PLVAo_p0Ct-fgsNFE5lKvu7Dc4ju801lT0" target="_blank">Commodity Videos</a></li>
+			<li><a href="https://www.youtube.com/watch?v=z05kjsWjwtQ&list=PLVAo_p0Ct-fiUQia7oQkDFujRKuqvtq9f" target="_blank">100 Day Trader Connection</a></li>
+			<li><a href="https://www.youtube.com/watch?v=jgri5sI-BzM&list=PLVAo_p0Ct-fgrmLBpGtYJgjQ_IRaQ2oCE" target="_blank">100 Day Strategy Connection</a></li>
+			<li><a href="https://www.youtube.com/watch?v=vVAcUXK6UY4&list=PLVAo_p0Ct-fhfFHSg210iP9XXYxvQdTWJ" target="_blank">Basics of Options (in English)</a></li>
+			<li><a href="https://www.youtube.com/watch?v=uvDwjbudVgQ&list=PLVAo_p0Ct-fjEiR73uPXwBw2-cxaqFNy7" target="_blank">English Videos</a></li>
+		</ul>
+	</li>
+	<li class="menu-has-children"><a href="/authentication">Login</a>
+		<ul>
+			<li><a href="/authentication">Login</a></li>
+			<li><a href="/beta/tools/profile.php">Define Profile</a></li>
+		</ul>
+	</li>
+	
+	<li><a href="https://www.pivottrading.co.in/beta/index.php#contact">Contact</a></li>
+	</ul>
+  </nav><!-- #nav-menu-container -->
+</div>
+</header><!-- #header -->  
+  <!--==========================
+    Pricing Table Section
+  ============================-->
+  <section id="pricing" class="padd-section text-center wow">
+
+    <div class="container">
+	<div class="card-body">
+		<div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-4 text-center">
+				<a href="design-strategy-zerodha.php" class="form-control"  style='border: 2px solid black' ><img src="images/zerodha-horizontal.png" alt="ZERODHA"></a>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 text-center">
+				<a href="design-strategy-upstox.php" class="form-control" ><img src="images/upstox-horizontal.png" alt="UPSTOX"></a>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 text-center">
+				<a href="design-strategy-aliceblue.php" class="form-control" ><img src="images/aliceblue-horizontal.jpg" alt="ALICEBLUE"></a>
+			</div>
+		</div>
+	</div>
+    <div class="row">
+        <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+            <iframe style="height: 300vh;" width="100%" src="/basket/basketOrder.php" frameborder="0"></iframe>
+        </div>
+	</div>
+	
+    </div>
+
+  </section>
+
+
+	<div class="container">
+		<div class="card text-center">
+			<script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
+				<ins class="adsbygoogle"
+					 style="display:block"
+					 data-ad-client="ca-pub-9316417427973427"
+					 data-ad-slot="2989267882"
+					 data-ad-format="auto"></ins>
+			<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
+	</div>
+
+  <!--==========================
+    Footer
+  ============================-->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-12 col-lg-4">
+          <div class="footer-logo">
+
+            <a class="navbar-brand" href="#">Pivottrading.Net</a>
+            <p><i>Pivottrading.Net is a website which has various Scanners, Strategies and Tools for your research & analysis. All the tools are based on mathematical concept and allow direct order placement facility to your <a href="https://zerodha.com/open-account?c=ZMPSSL" target="_blank">Zerodha</a> | <a href="https://upstox.com/open-demat-account/?f=4JJC" target="_blank">Upstox</a> | <a href="https://alicebluepartner.com/pivot-trading-india/" target="_blank">Aliceblue</a> account.</i></p>
+
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="list-menu">
+
+            <h4>Tools</h4>
+
+            <ul class="list-unstyled">
+              <li><a href="/beta/pages/zerodha-tools.php"><i>Zerodha Tools</i></a></li>
+              <li><a href="/beta/pages/upstox-tools.php"><i>Upstox Tools</i></a></li>
+              <li><a href="/beta/pages/aliceblue-tools.php"><i>Aliceblue Tools</i></a></li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="list-menu">
+
+            <h4>Partner Brokers</h4>
+
+            <ul class="list-unstyled">
+              <li><a href="https://zerodha.com/open-account?c=ZMPSSL" target="_blank"><i>Zerodha</i></a></li>
+              <li><a href="https://upstox.com/open-demat-account/?f=4JJC" target="_blank"><i>Upstox</i></a></li>
+              <li><a href="https://alicebluepartner.com/pivot-trading-india/" target="_blank"><i>Aliceblue</i></a></li>
+              <li><a href="https://www.5paisa.com/landing/partners-elite?rcode=NTg5ODk4MTc=" target="_blank"><i>5 Paisa</i></a></li>
+			  <li><a href="https://online.angelbroking.com/Diykyc/SubbrokerLead?SbTag=U0FISFM=" target="_blank"><i>Angel Broking</i></a></li>
+			  <li><a href="http://partners.fyers.in/AP096" target="_blank"><i>Fyers</i></a></li>
+			  <li><a href="https://www.stoxkart.com/cpc/open-demat-account.php?ref=BDSTX0077" target="_blank"><i>StoxKart</i></a></li>
+			  <li><a href="https://tradesmartonline.in/landing-page/online-trading/?landing_page=asli-trader&utm_refer=YMHS5038&utm_source=AP" target="_blank"><i>TradeSmartOnline</i></a></li>
+			  <li><a href="http://bit.ly/2YharRS" target="_blank"><i>Edelweiss</i></a></li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="list-menu">
+
+            <h4>Compare </h4>
+
+            <ul class="list-unstyled">
+				<li><a href="http://compareonlinebroker.co.in/zerodha-vs-upstox/" target="_blank"><i>Zerodha Vs Upstox</i></a></li>
+				<li><a href="http://compareonlinebroker.co.in/zerodha-vs-aliceblue/" target="_blank"><i>Zerodha Vs Aliceblue</i></a></li>
+				<li><a href="http://compareonlinebroker.co.in/upstox-vs-aliceblue/" target="_blank"><i>Upstox Vs Aliceblue</i></a></li>
+				<li><a href="http://compareonlinebroker.co.in/zerodha-vs-tradesmartonline/" target="_blank"><i>Zerodha Vs TradeSmartOnline</i></a></li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="list-menu">
+
+            <h4>Contact Us</h4>
+
+            <ul class="list-unstyled">
+				<li><a href="https://twitter.com/" class="twitter"><i class="twitter1">Twitter</i></a></li>
+				<li><a href="" class="facebook"><i class="facebook1">Facebook</i></a></li>
+				<li><a href="https://www.youtube.com/" class="youtube" target="_blank"><i class="youtube1">Youtube</i></a></li>
+				<li><a href="https://www.linkedin.com/" class="linkedin"><i class="linkedin1">LinkedIn</i></a></li>
+            </ul>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="copyrights">
+      <div class="container">
+        <p>&copy; Copyrights Pivottrading.Net. All rights reserved.</p>
+
+      </div>
+    </div>
+
+  </footer>
+
+
+
+ 
+
+
+    
+</body>
+</html
